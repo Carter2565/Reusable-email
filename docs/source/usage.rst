@@ -42,14 +42,6 @@ The `Sync` class is used for synchronous operations:
 
 Also in the `Sync` class is our encrypted inbox support:
 
-To get started generate your RSA keys, in our package we've made it easy to generate them.
-Generate your keys we will need them later
-
-Generating RSA Keys
-~~~~~~~~~~~~~~~~~~~
-
-
-
 Asynchronous Usage
 ~~~~~~~~~~~~~~~~~~
 
@@ -82,6 +74,10 @@ The `Async` class is used for asynchronous operations with `aiohttp`:
    asyncio.run(main())
 
 
+Generating RSA Keys
+~~~~~~~~~~~~~~~~~~~
+
+To get started with our encrypted inboxes generate your RSA keys, in our package we've made it easy to generate them.
 Use `reusable.email.generate_keys` to easily generate RSA public and private keys in PEM format:
 
 .. code-block:: python
