@@ -12,6 +12,7 @@ Synchronous API
 
 .. autoclass:: reusable.email.Sync
    :members:
+   :undoc-members:
    :show-inheritance:
 
    Methods
@@ -30,6 +31,7 @@ Asynchronous API
 
 .. autoclass:: reusable.email.Async
    :members:
+   :undoc-members:
    :show-inheritance:
 
    Methods
