@@ -2,7 +2,7 @@ API Reference
 =============
 
 .. toctree::
-   :hidden:
+   .. :hidden:
 
    api/sync
    api/async
