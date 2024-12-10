@@ -163,3 +163,8 @@ cython_debug/
 
 #VSCode
 .vscode
+
+# Old files / backups
+.old
+.0ld
+

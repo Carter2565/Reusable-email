@@ -1,19 +1,26 @@
 Welcome to Reusable.email's documentation!
-===================================
+==========================================
 
-**Reusable.email** (/lu'make/) is a Python library for integrating with Reusable.eamil's api!
+**Reusable.email** is a temporary/reusable email service. 
+In these docs you will find both our web api documentation and our python package api.
 
-Check out the :doc:`usage` section for further information, including
-how to :ref:`installation` the project.
+Check out our web :doc:`api` for direct integration into your application! 
+Check out our :doc:`api-usage` for more information
+
+If your application is in python your in luck! We have a package for you!
+Check out our :doc:`package-usage` section for further information, including the
+:ref:`Installation` of our package.
 
 .. note::
 
-   This project is under active development.
+   This project is under active development. But is actively maintained
 
 Contents
 --------
 
 .. toctree::
 
-   usage
+   package-usage
+   package
+   api-usage
    api

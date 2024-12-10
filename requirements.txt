@@ -1,0 +1,4 @@
+cryptography
+requests
+aiohttp
+typing_extensions

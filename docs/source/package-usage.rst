@@ -1,5 +1,7 @@
-Documentation
-=============
+Package Documentation
+=====================
+
+.. _installation:
 
 Installation
 ------------
@@ -14,6 +16,8 @@ Getting Started
 ---------------
 
 `reusable.email` provides both synchronous and asynchronous classes for interacting with the API. Additionally, it includes a utility function for generating RSA public and private keys.
+
+.. _synchronous-usage:
 
 Synchronous Usage
 ~~~~~~~~~~~~~~~~~
@@ -41,6 +45,8 @@ The `Sync` class is used for synchronous operations:
 
 
 Also in the `Sync` class is our encrypted inbox support:
+
+.. _asynchronous-usage:
 
 Asynchronous Usage
 ~~~~~~~~~~~~~~~~~~
@@ -74,6 +80,8 @@ The `Async` class is used for asynchronous operations with `aiohttp`:
    asyncio.run(main())
 
 
+.. _rsa-generation:
+
 Generating RSA Keys
 ~~~~~~~~~~~~~~~~~~~
 
@@ -93,6 +101,8 @@ Use `reusable.email.generate_keys` to easily generate RSA public and private key
    print("Private Key:")
    print(private_key.decode("utf-8"))
 
+
+.. _encrypted-inbox:
 
 Encrypted Inbox Support
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -138,13 +148,7 @@ Both `Sync` and `Async` classes provide methods for handling encrypted inboxes. 
    success = sync_client.delete_email(alias=alias, email_id="email_id")
    print("Deleted successfully:", success)
 
-.. py:class:: Email
-   Attributes:
-   id (str): The unique identifier of the email.
-   subject (str): The subject line of the email.
-   sender (str): The sender's email address.
-   timestamp (float): The timestamp when the email was sent.
-   body (str): The content/body of the email.
+.. _error-handling:
 
 Error Handling
 --------------
