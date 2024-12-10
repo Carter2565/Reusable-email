@@ -89,7 +89,7 @@ class Sync:
         raise Forbidden(response, data)
       elif response.status_code == 404:
         raise NotFound(response, data)
-      elif response.status_code == 405:
+      elif response.status_code == 400:
         raise InvalidParams(response, data)
       elif response.status_code >= 500:
         raise FetchFail(response, data)
@@ -143,7 +143,7 @@ class Sync:
         decrypted_email = crypto.decrypt_email(email, self.private_key)
         inbox.append(decrypted_email)
       return inbox
-    return response
+    return response.json()
 
   def fetch_encrypted_email(self, alias: str, email_id: str) -> Union[Email, requests.Response]:
     """Fetch a specific email from the inbox."""
@@ -151,7 +151,7 @@ class Sync:
     response = self.request(route=Route(self.BASE_URL, 'get', "/encrypted/email"), params=params)
     if response.status_code == 200 and self.private_key:
       return crypto.decrypt_email(response.json(), self.private_key)
-    return response
+    return response.json()
 
   def delete_encrypted_email(self, alias: str, email_id: str) -> Union[bool, requests.Response]:
     """Delete a specific email from the inbox."""
@@ -218,7 +218,7 @@ class Async:
         raise Forbidden(response, data)
       elif response.status == 404:
         raise NotFound(response, data)
-      elif response.status == 405:
+      elif response.status == 400:
         raise InvalidParams(response, data)
       elif response.status >= 500:
         raise FetchFail(response, data)
@@ -273,7 +273,7 @@ class Async:
         decrypted_email = crypto.decrypt_email(email, self.private_key)
         inbox.append(decrypted_email)
       return inbox
-    return response
+    return await response.json()
   
   async def fetch_encrypted_email(self, alias: str, email_id: str) -> Union[Email, aiohttp.ClientResponse]:
     """Fetch a specific email from the inbox."""
@@ -283,7 +283,7 @@ class Async:
     if response.status == 200 and self.private_key:
       json_response = await response.json()
       return crypto.decrypt_email(json_response, self.private_key)
-    return response
+    return await response.json()
 
   async def delete_encrypted_email(self, alias: str, email_id: str) -> Union[bool, aiohttp.ClientResponse]:
     """Delete a specific email from the inbox."""
