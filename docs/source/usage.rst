@@ -10,13 +10,15 @@ To use Lumache, first install it using pip:
 
 .. code-block:: console
 
-   (.venv) $ pip install lumache
+   (.venv) $ pip install reusable-email
 
-Creating recipes
+Getting Started
 ----------------
 
-To retrieve a list of random ingredients,
-you can use the ``lumache.get_random_ingredients()`` function:
+Determine wether or not you are writing a synchronous or a asynchronous,
+
+.. py:class:: Sync
+
 
 .. autofunction:: lumache.get_random_ingredients
 
