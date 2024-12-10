@@ -1,0 +1,8 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "Reusable-email"
+authors = [{name = "Carter2565", email = "Carter@carter2565.dev"},{name = "Jam"}]
+dynamic = ["version", "description"]
