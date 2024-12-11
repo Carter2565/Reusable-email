@@ -1,4 +1,5 @@
 # type: ignore 
+import json
 
 class Email:
   def __init__(self, id: str, subject: str, sender: str, timestamp: float, body: str):
@@ -13,11 +14,11 @@ class Email:
     # Parse JSON and create an Email instance
     email_json = json.loads(decrypted_email_data)
     return cls(
-      id=email_json['id'],
-      subject=email_json['subject'],
-      sender=email_json['sender'],
-      timestamp=email_json['timestamp'],
-      body=email_json['body']
+      id=email_json.get('id', None),
+      subject=email_json.get('subject', None),
+      sender=email_json.get('sender', None),
+      timestamp=email_json.get('timestamp', None),
+      body=email_json.get('body', None)
     )
   
 

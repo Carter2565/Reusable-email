@@ -19,14 +19,14 @@ Inbox Management
   - `alias` (string): The alias name of the inbox.
 - **Description:** Fetches all emails in the specified inbox.
 
-**Get Email**
+**Get Email Body**
 
 - **URL:** `/email`
 - **Method:** `GET`
 - **Parameters:**
   - `alias` (string): The alias name of the inbox.
   - `id` (string): The email ID to fetch.
-- **Description:** Fetches the details of a specific email in the inbox.
+- **Description:** Fetches the body of a specific email in the inbox.
 
 **Delete Email**
 

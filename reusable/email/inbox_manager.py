@@ -109,12 +109,12 @@ class Sync:
       return response['inbox']
     return response
 
-  def fetch_email(self, alias: str, email_id: str) -> Union[Email, requests.Response]:
-    """Fetch a specific email from the inbox."""
+  def fetch_email_body(self, alias: str, email_id: str) -> Union[str, requests.Response]:
+    """Fetch a specific email's body from the inbox."""
     params = {"alias": alias, "id": email_id}
     response = self.request(route=Route(self.BASE_URL, 'get', "/email"), params=params)
     if response.status_code == 200:
-      return response.json()
+      return response.text
     return response
 
   def delete_email(self, alias: str, email_id: str) -> Union[bool, requests.Response]:
@@ -237,12 +237,12 @@ class Async:
       return await response.json()
     return response
 
-  async def fetch_email(self, alias: str, email_id: str) -> Union[Email, aiohttp.ClientResponse]:
+  async def fetch_email_body(self, alias: str, email_id: str) -> Union[str, aiohttp.ClientResponse]:
     """Fetch a specific email from the inbox."""
     params = {"alias": alias, "id": email_id}
     response = await self.request(route=Route(self.BASE_URL, 'get', "/email"), params=params)
     if response.status == 200:
-      return await response.json()
+      return await response.text('utf-8')
     return response
 
   async def delete_email(self, alias: str, email_id: str) -> Union[bool, aiohttp.ClientResponse]:

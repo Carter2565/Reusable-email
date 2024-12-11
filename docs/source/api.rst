@@ -43,7 +43,7 @@ Endpoints
 
 .. http:get:: /v1/email
 
-   Fetches the details of a specific email.
+   Fetches the body of a specific email.
 
    **Parameters**
 
@@ -59,14 +59,9 @@ Endpoints
 
    **Example Response**
 
-   .. code-block:: json
+   .. code-block:: html
 
-      {
-          "id": "123",
-          "subject": "Welcome!",
-          "body": "Hello, this is a welcome email.",
-          "timestamp": "2024-12-10T10:00:00Z"
-      }
+      '<div dir="ltr">This is and example body<br/></div>\n'
 
 .. http:delete:: /v1/email
 

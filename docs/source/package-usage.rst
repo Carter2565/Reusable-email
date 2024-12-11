@@ -35,8 +35,8 @@ The `Sync` class is used for synchronous operations:
    inbox = sync_client.view_inbox(alias="example_alias")
    print(inbox)
 
-   # Fetch a specific email
-   email = sync_client.fetch_email(alias="example_alias", email_id="email_id")
+   # Fetch a specific email's body
+   email = sync_client.fetch_email_body(alias="example_alias", email_id="email_id")
    print(email)
 
    # Delete an email
@@ -66,8 +66,8 @@ The `Async` class is used for asynchronous operations with `aiohttp`:
        inbox = await async_client.view_inbox(alias="example_alias")
        print(inbox)
 
-       # Fetch a specific email
-       email = await async_client.fetch_email(alias="example_alias", email_id="email_id")
+       # Fetch a specific email's body
+       email = await async_client.fetch_email_body(alias="example_alias", email_id="email_id")
        print(email)
 
        # Delete an email
