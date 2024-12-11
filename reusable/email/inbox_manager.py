@@ -99,7 +99,7 @@ class Sync:
         raise HTTPException(response, data)
 
   # Reg Inboxes
-  def view_inbox(self, alias: str, after: Optional[str] = None) -> Union[Inbox, requests.Response]:
+  def view_inbox(self, alias: str, after: Optional[str] = None) -> Union[list[Email], requests.Response]:
     """View the content of an inbox."""
     params = {"alias": alias}
     if after:
@@ -135,7 +135,7 @@ class Sync:
     json_data = {"publicKey": public_key.decode('utf-8'), "inboxName": alias.upper()}
     return self.request(route=Route(self.BASE_URL, 'post', "/encrypted/inbox"), data=json_data)
 
-  def view_encrypted_inbox(self, alias: str, after: Optional[str] = None) -> Union[Inbox, requests.Response]:
+  def view_encrypted_inbox(self, alias: str, after: Optional[str] = None) -> Union[list[Email], requests.Response]:
     """View the content of an inbox."""
     params = {"alias": alias.upper()}
     if after:
@@ -231,7 +231,7 @@ class Async:
       else:
         raise HTTPException(response, data)
 
-  async def view_inbox(self, alias: str, after: Optional[str] = None) -> Union[Inbox, aiohttp.ClientResponse]:
+  async def view_inbox(self, alias: str, after: Optional[str] = None) -> Union[list[Email], aiohttp.ClientResponse]:
     """View the content of an inbox."""
     params = {"alias": alias}
     if after:
@@ -267,7 +267,7 @@ class Async:
     json_data = {"publicKey": public_key.decode('utf-8'), "inboxName": alias.upper()}
     return await self.request(route=Route(self.BASE_URL, 'post', "/encrypted/inbox"), json=json_data)
 
-  async def view_encrypted_inbox(self, alias: str, after: Optional[str] = None) -> Union[Inbox, aiohttp.ClientResponse]:
+  async def view_encrypted_inbox(self, alias: str, after: Optional[str] = None) -> Union[list[Email], aiohttp.ClientResponse]:
     """View the content of an inbox."""
     params = {"alias": alias.upper()}
     if after:
