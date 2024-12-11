@@ -265,7 +265,7 @@ class Async:
   async def create_encrypted_inbox(self, alias: str, public_key: bytes) -> aiohttp.ClientResponse:
     """Create a new encrypted inbox."""
     json_data = {"publicKey": public_key.decode('utf-8'), "inboxName": alias.upper()}
-    return await self.request(route=Route(self.BASE_URL, 'post', "/encrypted/inbox"), json=json_data)
+    return await self.request(route=Route(self.BASE_URL, 'post', "/encrypted/inbox"), data=json_data)
 
   async def view_encrypted_inbox(self, alias: str, after: Optional[str] = None) -> Union[list[Email], aiohttp.ClientResponse]:
     """View the content of an inbox."""
