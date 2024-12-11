@@ -109,7 +109,7 @@ class Sync:
       inbox: Inbox = []
       json_response = response.json()
       for email in json_response.get('inbox', []):
-        inbox.append(Email.from_json(email))
+        inbox.append(Email.from_json(json.dumps(email)))
       return inbox
     return response
 
@@ -145,7 +145,7 @@ class Sync:
       inbox: Inbox = []
       for email in response.json().get('inbox', []):
         decrypted_email = crypto.decrypt_email(email, self.private_key)
-        inbox.append(Email.from_json(decrypted_email))  
+        inbox.append(Email.from_json(json.dumps(decrypted_email)))
       return inbox
     return response.json()
 
@@ -241,7 +241,7 @@ class Async:
       inbox: Inbox = []
       json_response = await response.json()
       for email in json_response.get('inbox', []):
-        inbox.append(Email.from_json(email))
+        inbox.append(Email.from_json(json.dumps(email)))
       return inbox
     return response
 
@@ -279,7 +279,7 @@ class Async:
       json_response = await response.json()
       for email in json_response.get('inbox', []):
         decrypted_email = crypto.decrypt_email(email, self.private_key)
-        inbox.append(Email.from_json(decrypted_email))
+        inbox.append(Email.from_json(json.dumps(decrypted_email)))
       return inbox
     return await response.json()
   
