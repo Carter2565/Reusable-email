@@ -71,7 +71,10 @@ class HTTPException(Exception):
       self.text = message or ''
       self.json = {'code': 0, 'message': message or ''}
 
-    fmt = f'{response.status} {response.reason} (error code: {self.code})'
+    try: # TODO Update this for sync/async
+      fmt = f'{response.status} {response.reason} (error code: {self.code})'
+    except:
+      fmt = f'{response.status_code} {response.reason} (error code: {self.code})'
     if self.text:
       fmt += f': {self.text}'
     super().__init__(fmt)
