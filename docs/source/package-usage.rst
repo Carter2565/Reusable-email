@@ -10,7 +10,7 @@ To use `reusable.email`, first install it using pip:
 
 .. code-block:: console
 
-   (.venv) $ pip install reusable-email
+   .. (.venv) $ pip install git+https://github.com/Carter2565/Reusable-email.git
 
 Getting Started
 ---------------
