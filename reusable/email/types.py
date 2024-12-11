@@ -21,6 +21,18 @@ class Email:
       body=email_json.get('body', None)
     )
   
+  @classmethod
+  def to_json(cls, email_instance):
+    # Convert Email instance to JSON string
+    email_dict = {
+      'id': email_instance.id,
+      'subject': email_instance.subject,
+      'sender': email_instance.sender,
+      'timestamp': email_instance.timestamp,
+      'body': email_instance.body
+    }
+    return json.dumps(email_dict)
+
 
 Inbox = list[Email]
   
