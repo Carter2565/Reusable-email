@@ -43,8 +43,8 @@ class Route:
 class Sync:
   """Manages a synchronized session with the API."""
 
-  def __init__(self, authorization: str, private_key: Optional[str] = None) -> None:
-    self.private_key = private_key.decode('utf-8')
+  def __init__(self, authorization: str, private_key: Optional[bytes] = None) -> None:
+    self.private_key = private_key.decode('utf-8') if private_key else None
     self.session: Optional[requests.Session] = None
     self.BASE_URL = f"http://api.reusable.email/v{INTERNAL_API_VERSION}"
     self.generate_session(authorization)
@@ -164,8 +164,8 @@ class Sync:
 class Async:
   """Manages an asynchronous session with the API."""
 
-  def __init__(self, authorization: str, private_key: Optional[str] = None) -> None:
-    self.private_key = private_key
+  def __init__(self, authorization: str, private_key: Optional[bytes] = None) -> None:
+    self.private_key = private_key.decode('utf-8') if private_key else None
     self.session: Optional[aiohttp.ClientSession] = None
     self.BASE_URL = f"http://api.reusable.email/v{INTERNAL_API_VERSION}"
     self.authorization = authorization
