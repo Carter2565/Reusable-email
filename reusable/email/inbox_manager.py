@@ -130,10 +130,13 @@ class Sync:
     return response
       
   # Encrypted Inboxes
-  def create_encrypted_inbox(self, alias: str, public_key: bytes) -> requests.Response:
+  def create_encrypted_inbox(self, alias: str, public_key: bytes) -> Union[bool, requests.Response]:
     """Create a new encrypted inbox."""
     json_data = {"publicKey": public_key.decode('utf-8'), "inboxName": alias.upper()}
-    return self.request(route=Route(self.BASE_URL, 'post', "/encrypted/inbox"), data=json_data)
+    response = self.request(route=Route(self.BASE_URL, 'post', "/encrypted/inbox"), data=json_data)
+    if response.status_code == 200:
+      return True
+    return response
 
   def view_encrypted_inbox(self, alias: str, after: Optional[str] = None) -> Union[list[Email], requests.Response]:
     """View the content of an inbox."""
@@ -147,15 +150,24 @@ class Sync:
         decrypted_email = crypto.decrypt_email(email, self.private_key)
         inbox.append(Email.from_json(json.dumps(decrypted_email)))
       return inbox
-    return response.json()
+    return response
 
   def fetch_encrypted_email(self, alias: str, email_id: str) -> Union[Email, requests.Response]:
     """Fetch a specific email from the inbox."""
     params = {"alias": alias.upper(), "id": email_id}
-    response = self.request(route=Route(self.BASE_URL, 'get', "/encrypted/email"), params=params)
-    if response.status_code == 200 and self.private_key:
-      return crypto.decrypt_email(response.json(), self.private_key)
-    return response.json()
+    try: # Server side is broken LMFAO
+      response = self.request(route=Route(self.BASE_URL, 'get', "/encrypted/email"), params=params)
+    except NotFound as e:
+      response = e.response
+    
+    # if response.status == 200 and self.private_key:
+    if self.private_key:
+      try:
+        json_response = response.json()
+        return crypto.decrypt_email(json_response, self.private_key)
+      except:
+        pass
+    return response
 
   def delete_encrypted_email(self, alias: str, email_id: str) -> Union[bool, requests.Response]:
     """Delete a specific email from the inbox."""
@@ -262,14 +274,12 @@ class Async:
     return response
 
 
-  async def create_encrypted_inbox(self, alias: str, public_key: bytes) -> aiohttp.ClientResponse:
+  async def create_encrypted_inbox(self, alias: str, public_key: bytes) -> Union[bool, aiohttp.ClientResponse]:
     """Create a new encrypted inbox."""
     json_data = {"publicKey": public_key.decode('utf-8'), "inboxName": alias.upper()}
     response = await self.request(route=Route(self.BASE_URL, 'post', "/encrypted/inbox"), data=json_data)
-    
     if response.status == 200:
-      json_response = await response.json()
-      return json_response.get('message')
+      return True
     return response
 
   async def view_encrypted_inbox(self, alias: str, after: Optional[str] = None) -> Union[list[Email], aiohttp.ClientResponse]:
@@ -286,17 +296,24 @@ class Async:
         decrypted_email = crypto.decrypt_email(email, self.private_key)
         inbox.append(Email.from_json(json.dumps(decrypted_email)))
       return inbox
-    return await response.json()
+    return response
   
   async def fetch_encrypted_email(self, alias: str, email_id: str) -> Union[Email, aiohttp.ClientResponse]:
     """Fetch a specific email from the inbox."""
     params = {"alias": alias.upper(), "id": email_id}
-    response = await self.request(route=Route(self.BASE_URL, 'get', "/encrypted/email"), params=params)
+    try: # Server side is broken LMFAO
+      response = await self.request(route=Route(self.BASE_URL, 'get', "/encrypted/email"), params=params)
+    except NotFound as e:
+      response = e.response
     
-    if response.status == 200 and self.private_key:
-      json_response = await response.json()
-      return crypto.decrypt_email(json_response, self.private_key)
-    return await response.json()
+    # if response.status == 200 and self.private_key:
+    if self.private_key:
+      try:
+        json_response = await response.json()
+        return crypto.decrypt_email(json_response, self.private_key)
+      except:
+        pass
+    return response
 
   async def delete_encrypted_email(self, alias: str, email_id: str) -> Union[bool, aiohttp.ClientResponse]:
     """Delete a specific email from the inbox."""
