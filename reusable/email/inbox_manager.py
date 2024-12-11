@@ -106,7 +106,7 @@ class Sync:
       params["after"] = after
     response = self.request(route=Route(self.BASE_URL, 'get', "/inbox"), params=params)
     if response.status_code == 200:
-      return response.get('inbox')
+      return response.json().get('inbox')
     return response
 
   def fetch_email_body(self, alias: str, email_id: str) -> Union[str, requests.Response]:
