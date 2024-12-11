@@ -167,4 +167,4 @@ cython_debug/
 # Old files / backups
 .old
 .0ld
-
+.ignore
