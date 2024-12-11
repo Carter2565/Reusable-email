@@ -1,0 +1,117 @@
+
+:root {
+    --darkreader-neutral-background: #181a1b;
+    --darkreader-neutral-text: #e8e6e3;
+    --darkreader-selection-background: #004daa;
+    --darkreader-selection-text: #e8e6e3;
+}
+
+html, body {
+    background-color: #181a1b !important;
+    color: #e8e6e3 !important;
+    border-color: #736b5e !important;
+}
+
+a {
+    color: #3391ff !important;
+}
+
+table {
+    border-color: #545b5e !important;
+}
+
+mark {
+    color: #e8e6e3 !important;
+}
+
+::placeholder {
+    color: #b2aba1 !important;
+    opacity: 0.5 !important;
+}
+
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+    background-color: #404400 !important;
+    color: #e8e6e3 !important;
+}
+
+* {
+    scrollbar-color: #454a4d #202324 !important;
+}
+
+::selection, ::-moz-selection {
+    background-color: #004daa !important;
+    color: #e8e6e3 !important;
+}
+
+.wy-nav-content {
+	background-color: rgb(26, 28, 29);
+	background-image: none;
+}
+
+.wy-menu-vertical li.current {
+	background-color: rgb(40, 43, 45);
+	background-image: none;
+}.wy-menu-vertical
+
+.wy-menu-vertical li.toctree-l1.current > a {
+	border-bottom-color: rgb(63, 69, 71);
+	border-top-color: rgb(63, 69, 71);
+}
+
+.wy-menu-vertical li.current > a, .wy-menu-vertical li.on a {
+	color: rgb(192, 186, 178);
+	background-color: rgb(26, 28, 29);
+	background-image: none;
+	border-color: currentcolor;
+}
+
+.wy-menu-vertical li.toctree-l1.current > a {
+	border-bottom-color: rgb(63, 69, 71);
+	border-top-color: rgb(63, 69, 71);
+}
+
+.wy-menu-vertical li.current a {
+	color: rgb(152, 143, 129);
+	border-right-color: rgb(63, 69, 71);
+}
+
+.wy-menu-vertical li.current > a:hover, .wy-menu-vertical li.on a:hover, .wy-menu-vertical li.current a:hover {
+	background-color: #4e4a4a;
+	cursor: pointer;
+}
+
+.btn-neutral {
+	background-color: rgb(27, 36, 36) !important;
+	color: rgb(192, 186, 178) !important;
+} */
+
+.btn-neutral:hover {
+	background-color: rgb(34, 44, 44) !important;
+	/* color: rgb(192, 186, 178); */
+}
+.btn-neutral:visited {
+	color: rgb(192, 186, 178) !important;
+}
+
+.highlight {
+	background-color: rgb(28, 30, 31);
+	background-image: none;
+}
+
+.rst-content div[class^="highlight"], .rst-content pre.literal-block {
+	border-color: rgb(56, 61, 63);
+}
+
+::placeholder {
+	color: rgb(178, 171, 161) !important;
+}
+
+.wy-side-nav-search input[type="text"] {
+	border-color: rgb(35, 111, 160);
+}
+input[type="color"], input[type="date"], input[type="datetime-local"], input[type="datetime"], input[type="email"], input[type="month"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="time"], input[type="url"], input[type="week"] {
+	border-color: rgb(62, 68, 70);
+	box-shadow: rgb(43, 47, 49) 0px 1px 3px inset;
+}

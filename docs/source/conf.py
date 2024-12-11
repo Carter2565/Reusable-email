@@ -32,5 +32,14 @@ templates_path = ['_templates']
 
 html_theme = 'sphinx_rtd_theme'
 
+# Path to static files
+html_static_path = ['_static']
+
+# Include DarkReader CSS
+# html_css_files = [
+#     'dark_mode.css',
+# ]
+
+
 # -- Options for EPUB output
 epub_show_urls = 'footnote'

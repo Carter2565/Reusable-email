@@ -5,7 +5,7 @@ API Reference
    :hidden:
 
 Reusable Email API Reference
-============================
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. module:: reusable_email
    :synopsis: Provides access to the Reusable Email API.
