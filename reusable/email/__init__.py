@@ -10,6 +10,8 @@ Author: Carter2565
 Version: 1.0.0
 """
 
+__version__ = '0.1.0'
+
 # Import key functions from submodules
 from .crypto import generate_keys
 from .inbox_manager import (
