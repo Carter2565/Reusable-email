@@ -106,7 +106,7 @@ class Sync:
       params["after"] = after
     response = self.request(route=Route(self.BASE_URL, 'get', "/inbox"), params=params)
     if response.status_code == 200:
-      return response['inbox']
+      return response.get('inbox')
     return response
 
   def fetch_email_body(self, alias: str, email_id: str) -> Union[str, requests.Response]:
@@ -234,7 +234,7 @@ class Async:
       params["after"] = after
     response = await self.request(route=Route(self.BASE_URL, 'get', "/inbox"), params=params)
     if response.status == 200:
-      return await response.json()
+      return await response.json().get('inbox')
     return response
 
   async def fetch_email_body(self, alias: str, email_id: str) -> Union[str, aiohttp.ClientResponse]:
