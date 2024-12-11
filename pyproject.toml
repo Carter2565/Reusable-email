@@ -13,7 +13,7 @@ name = "reusable.email"
 authors = [{name = "Carter2565", email = "Carter@carter2565.dev"},{name = "Jam"}]
 dynamic = ["version", "description"]
 dependencies = [
-   'cryptography',
+  'cryptography',
   'requests',
   'aiohttp',
   'typing_extensions']
