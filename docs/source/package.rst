@@ -9,6 +9,7 @@ Synchronous API
    :members:
    :undoc-members:
    :show-inheritance:
+   :noindex:
 
    Methods
    ~~~~~~~
@@ -29,6 +30,7 @@ Asynchronous API
   :members:
   :undoc-members:
   :show-inheritance:
+  :noindex:
 
   Methods
   ~~~~~~~
@@ -36,6 +38,7 @@ Asynchronous API
   Session related methods
   -----------------------
   .. automethod:: reusable.email.Async.generate_session
+   
   
   General inboxes
   ---------------

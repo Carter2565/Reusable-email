@@ -2,8 +2,7 @@
 
 import os
 import sys
-sys.path.insert(0, os.path.abspath('../'))  # Adjust the path as needed
-
+sys.path.insert(0, os.path.abspath('../../'))  # Adjust the path as needed
 
 # -- Project information
 
