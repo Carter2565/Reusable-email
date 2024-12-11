@@ -14,6 +14,6 @@ requires = [
 build-backend = "flit_core.buildapi"
 
 [project]
-name = "Reusable-email"
+name = "reusable.email"
 authors = [{name = "Carter2565", email = "Carter@carter2565.dev"},{name = "Jam"}]
 dynamic = ["version", "description"]
