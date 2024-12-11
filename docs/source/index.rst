@@ -15,6 +15,10 @@ Check out our :doc:`package-usage` section for further information, including th
 
    This project is under active development. But is actively maintained
 
+   Errors are not 100% complete but package should be working! 
+   Message @Carter2565 on discord or telegram if there is a problem.
+   Support server: https://discord.gg/jams
+
 Contents
 --------
 
