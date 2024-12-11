@@ -196,7 +196,7 @@ class Async:
 
   async def request(
     self, route: Route, headers: Optional[Dict[str, str]] = None,
-    params: Optional[Dict[str, str]] = None, json: Optional[Dict[str, Any]] = None
+    params: Optional[Dict[str, str]] = None, json: Optional[Dict[str, Any]] = None, data: Optional[Dict[str, Any]] = None
   ) -> aiohttp.ClientResponse:
     """Send an asynchronous HTTP request based on the given route and parameters."""
     if not self.session:
@@ -213,7 +213,7 @@ class Async:
       raise ValueError(f"Unsupported HTTP method: {route.method}")
 
     async with methods[route.method](
-      route.url, headers=headers, params=params, json=json
+      route.url, headers=headers, params=params, json=json, data=data
     ) as response:
       data = await self.json_or_text(response)
       if response.status in {200, 202}:
