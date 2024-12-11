@@ -101,7 +101,7 @@ class Sync:
   # Reg Inboxes
   def view_inbox(self, alias: str, after: Optional[str] = None) -> Union[Inbox, requests.Response]:
     """View the content of an inbox."""
-    params = {"alias": alias.upper()}
+    params = {"alias": alias}
     if after:
       params["after"] = after
     response = self.request(route=Route(self.BASE_URL, 'get', "/inbox"), params=params)
@@ -111,7 +111,7 @@ class Sync:
 
   def fetch_email(self, alias: str, email_id: str) -> Union[Email, requests.Response]:
     """Fetch a specific email from the inbox."""
-    params = {"alias": alias.upper(), "id": email_id}
+    params = {"alias": alias, "id": email_id}
     response = self.request(route=Route(self.BASE_URL, 'get', "/email"), params=params)
     if response.status_code == 200:
       return response.json()
@@ -119,7 +119,7 @@ class Sync:
 
   def delete_email(self, alias: str, email_id: str) -> Union[bool, requests.Response]:
     """Delete a specific email from the inbox."""
-    params = {"alias": alias.upper(), "id": email_id}
+    params = {"alias": alias, "id": email_id}
     response = self.request(route=Route(self.BASE_URL, 'delete', "/email"), params=params)
     if response.status_code == 200:
       return response.json().get('success', False)
@@ -229,7 +229,7 @@ class Async:
 
   async def view_inbox(self, alias: str, after: Optional[str] = None) -> Union[Inbox, aiohttp.ClientResponse]:
     """View the content of an inbox."""
-    params = {"alias": alias.upper()}
+    params = {"alias": alias}
     if after:
       params["after"] = after
     response = await self.request(route=Route(self.BASE_URL, 'get', "/inbox"), params=params)
@@ -239,7 +239,7 @@ class Async:
 
   async def fetch_email(self, alias: str, email_id: str) -> Union[Email, aiohttp.ClientResponse]:
     """Fetch a specific email from the inbox."""
-    params = {"alias": alias.upper(), "id": email_id}
+    params = {"alias": alias, "id": email_id}
     response = await self.request(route=Route(self.BASE_URL, 'get', "/email"), params=params)
     if response.status == 200:
       return await response.json()
@@ -247,7 +247,7 @@ class Async:
 
   async def delete_email(self, alias: str, email_id: str) -> Union[bool, aiohttp.ClientResponse]:
     """Delete a specific email from the inbox."""
-    params = {"alias": alias.upper(), "id": email_id}
+    params = {"alias": alias, "id": email_id}
     response = await self.request(route=Route(self.BASE_URL, 'delete', "/email"), params=params)
     if response.status == 200:
       return (await response.json()).get('success', False)
