@@ -234,7 +234,8 @@ class Async:
       params["after"] = after
     response = await self.request(route=Route(self.BASE_URL, 'get', "/inbox"), params=params)
     if response.status == 200:
-      return await response.json().get('inbox')
+      json_data = await response.json()
+      return json_data.get('inbox')
     return response
 
   async def fetch_email_body(self, alias: str, email_id: str) -> Union[str, aiohttp.ClientResponse]:
