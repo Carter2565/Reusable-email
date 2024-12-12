@@ -1,4 +1,4 @@
-Package Documentation
+Python Documentation
 =====================
 
 .. _installation:

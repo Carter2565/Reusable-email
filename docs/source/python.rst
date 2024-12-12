@@ -1,4 +1,4 @@
-Package Reference
+Python Reference
 =============================
 
 Docs wont build check out this page here
