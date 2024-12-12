@@ -2,7 +2,6 @@ Package Reference
 =============================
 
 
-
 .. autoclass:: reusable.email.Sync
    :members:
    :undoc-members:
