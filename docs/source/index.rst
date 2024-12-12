@@ -27,4 +27,4 @@ Contents
    package-usage
    package
    api-usage
-   .. api
+   api
