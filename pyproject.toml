@@ -1,12 +1,12 @@
 [build-system]
 requires = [
-  "setuptools", 
-  "wheel",
-  # "flit_core",
+  # "setuptools", 
+  # "wheel",
+  "flit_core",
   ]
 
-build-backend = "setuptools.build_meta"
-# build-backend = "flit_core.buildapi"
+# build-backend = "setuptools.build_meta"
+build-backend = "flit_core.buildapi"
 
 [project]
 name = "reusable.email"
