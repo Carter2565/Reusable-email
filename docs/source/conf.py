@@ -6,6 +6,8 @@ import sys
 sys.path.insert(0, os.path.abspath('..'))
 # -- Project information
 
+print(sys.path)
+
 project = 'Reusable.email'
 author = 'Carter2565'
 
