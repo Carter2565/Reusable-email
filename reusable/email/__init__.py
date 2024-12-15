@@ -19,9 +19,6 @@ from .inbox_manager import (
   Async
 )
 
-class test:
-  pass
-
 
 # Define the public API of the package
 __all__ = [
