@@ -1,0 +1,20 @@
+[build-system]
+requires = [
+  # "setuptools", 
+  # "wheel",
+  "flit_core",
+  ]
+
+# build-backend = "setuptools.build_meta"
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "reusable.email"
+authors = [{name = "Carter2565", email = "Carter@carter2565.dev"},{name = "Jam"}]
+dynamic = ["version", "description"]
+dependencies = [
+  'cryptography',
+  'requests',
+  'aiohttp',
+  'typing_extensions']
+
