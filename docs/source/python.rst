@@ -3,8 +3,16 @@ Python Reference
 
 Generating RSA Keys
 -------------------
-
-.. autoclass:: reusable.email.crypto.generate_keys
+.. method:: reusable.email.generate_keys(public_exponent=65537, key_size=2048) -> tuple[bytes, bytes]
+   
+   Generate a pair of RSA public and private keys.
+   
+   :param public_exponent: Public exponent for the key generation. Default is ``65537``.
+   :type public_exponent: int
+   :param key_size: Size of the key in bits. Default is ``2048``.
+   :type key_size: int
+   :returns: A tuple containing the public key and private key in PEM format as bytes.
+   :rtype: tuple[bytes, bytes]
 
 
 Synchronous API

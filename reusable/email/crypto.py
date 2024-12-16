@@ -4,9 +4,10 @@ from cryptography.hazmat.primitives import hashes, serialization
 from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 from cryptography.hazmat.backends import default_backend
 from .types import Email  
+from typing import Union
 
 
-def generate_keys(public_exponent=65537, key_size=2048):
+def generate_keys(public_exponent=65537, key_size=2048) -> Union[bytes, bytes]:
   """
   Generate a pair of RSA public and private keys.
   Args:
