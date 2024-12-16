@@ -1,8 +1,8 @@
 Python Reference
 =============================
 
-Docs wont build check out this page here
-https://docs.Carter2565.dev/reusable.email/package.html
+Synchronous API
+----------------
 
 .. autoclass:: reusable.email.Sync
    :members:
