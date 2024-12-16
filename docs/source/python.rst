@@ -4,7 +4,7 @@ Python Reference
 Generating RSA Keys
 -------------------
 
-.. automethod:: reusable.email.generate_keys
+.. autoclass:: reusable.email.crypto.generate_keys
 
 
 Synchronous API
