@@ -4,7 +4,7 @@ Python Reference
 Docs wont build check out this page here
 https://docs.Carter2565.dev/reusable.email/package.html
 
-.. autoclass:: reusable.email.Sync
+.. autoclass:: email.Sync
    :members:
    :undoc-members:
    :show-inheritance:  
