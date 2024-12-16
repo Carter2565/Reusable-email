@@ -1,6 +1,12 @@
 Python Reference
 =============================
 
+Generating RSA Keys
+-------------------
+
+.. automethod:: reusable.email.generate_keys
+
+
 Synchronous API
 ----------------
 
