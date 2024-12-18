@@ -116,7 +116,7 @@ Creates a new encrypted inbox.
 **Request Body**
 
 - `publicKey` (string): The public key encoded in UTF-8.
-- `inboxName` (string): The alias name in the format `^[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}$`. See more in our :ref:Encrypted Inbox Management docs
+- `inboxName` (string): The alias name in the format `^[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}$`. See more in our Encrypted Inbox Management docs in :doc:`api-usage`
 
 
 **Example Request**
@@ -229,8 +229,8 @@ Deletes a specific encrypted email.
    }
 
 
-Keys used in these examples
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Keys used in examples
+~~~~~~~~~~~~~~~~~~~~~
 
 **Public Key**
 
