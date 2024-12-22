@@ -14,7 +14,7 @@ Check out our :doc:`python-usage` section for further information, including the
 .. note::
    For support and updates join our Telegram Channel https://t.me/reusable
 
-   Generate a free test key with our Telegram bot https://t.me/reusableemailbot
+   Generate a free test api key with our Telegram bot https://t.me/reusableemailbot
 
 Contents
 --------
