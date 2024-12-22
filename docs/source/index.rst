@@ -12,11 +12,9 @@ Check out our :doc:`python-usage` section for further information, including the
 :ref:`Installation` of our package.
 
 .. note::
-
-   This project is under active development. But is actively maintained
-
-   Errors are not 100% complete but package should be working! 
    For support and updates join our Telegram Channel https://t.me/reusable
+
+   Generate a free test key with our Telegram bot https://t.me/reusableemailbot
 
 Contents
 --------
